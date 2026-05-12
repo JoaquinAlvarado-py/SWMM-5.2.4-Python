@@ -1,0 +1,43 @@
+from PyQt5 import QtCore, QtGui
+from PyQt5.QtWidgets import QFrame, QSizePolicy, QHBoxLayout, QLineEdit, QPushButton
+
+
+class TextPlusButton(QFrame):
+    def __init__(self, parent):
+        QFrame.__init__(self, parent)
+        # font = QtGui.QFont()
+        # font.setPointSize(10)
+        # self.setFont(font)
+        # self.centralWidget = QWidget(frmTextPlus)
+        # self.centralWidget.setObjectName(_fromUtf8("centralWidget"))
+        # self.frame = QFrame(self.centralWidget)
+        # self.frame.setGeometry(QtCore.QRect(40, 50, 189, 22))
+        size_policy = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum)
+        size_policy.setHorizontalStretch(0)
+        size_policy.setVerticalStretch(0)
+        # size_policy.setHeightForWidth(self.sizePolicy().hasHeightForWidth())
+        self.setSizePolicy(size_policy)
+        self.setMinimumSize(QtCore.QSize(50, 22))
+        self.setMaximumSize(QtCore.QSize(16777215, 1010))
+        self.setFrameShape(QFrame.StyledPanel)
+        self.setFrameShadow(QFrame.Raised)
+        self.setObjectName("TextPlusButton")
+        self.horizontalLayout = QHBoxLayout(self)
+        # self.horizontalLayout.setMargin(0)
+        self.horizontalLayout.setContentsMargins(0,0,0,0)
+        self.horizontalLayout.setSpacing(4)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.textbox = QLineEdit(self)
+        self.textbox.setObjectName("textbox")
+        self.horizontalLayout.addWidget(self.textbox)
+        self.button = QPushButton(self)
+        button_size_policy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        button_size_policy.setHorizontalStretch(0)
+        button_size_policy.setVerticalStretch(0)
+        # button_size_policy.setHeightForWidth(self.button.sizePolicy().hasHeightForWidth())
+        self.button.setSizePolicy(button_size_policy)
+        self.button.setMaximumSize(QtCore.QSize(30, 16777215))
+        self.button.setObjectName("button")
+        self.button.setText("...")
+        self.horizontalLayout.addWidget(self.button)
+
